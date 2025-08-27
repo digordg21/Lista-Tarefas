@@ -52,4 +52,20 @@ public class TarefaController : ControllerBase
         return NoContent();
     }
 
+    // Atualizar uma tarefa por id
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, Tarefa tarefa)
+    {
+        if (id != tarefa.Id)
+            return BadRequest();
+
+        var tarefaExistente = TarefaService.Get(tarefa.Id);
+        if (tarefaExistente is null)
+            return NotFound();
+
+        TarefaService.Update(tarefa);
+
+        return NoContent();
+    }
+
 }

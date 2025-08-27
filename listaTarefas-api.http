@@ -17,7 +17,18 @@ POST {{listaTarefas_api_HostAddress}}/Tarefa
 Content-Type: application/json
 
 {
-    "Descricao": "Teste",
+    "Descricao": "Teste 8",
+    "Concluida": false
+}
+
+###
+
+PUT {{listaTarefas_api_HostAddress}}/Tarefa/5
+Content-Type: application/json
+
+{
+    "Id": 5,
+    "Descricao": "Teste 9 - alterado",
     "Concluida": false
 }
 
