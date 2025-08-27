@@ -1,0 +1,24 @@
+@listaTarefas_api_HostAddress = http://localhost:5065
+
+GET {{listaTarefas_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+GET {{listaTarefas_api_HostAddress}}/Tarefa
+Accept: application/json
+
+###
+GET {{listaTarefas_api_HostAddress}}/Tarefa/3
+Accept: application/json
+
+###
+
+POST {{listaTarefas_api_HostAddress}}/Tarefa
+Content-Type: application/json
+
+{
+    "Descricao": "Teste",
+    "Concluida": false
+}
+
+###
