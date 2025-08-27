@@ -400,3 +400,8 @@ FodyWeavers.xsd
 # .NET build results
 bin/
 obj/
+
+# SQLite local database
+*.db
+*.db-shm
+*.db-wal

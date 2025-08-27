@@ -1,5 +1,7 @@
 using Tarefas.Models;
 using Tarefas.Services;
+using Tarefas.Repository;
+using Tarefas.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Tarefas.Controllers;
@@ -9,23 +11,24 @@ namespace Tarefas.Controllers;
 
 public class TarefaController : ControllerBase
 {
-    public TarefaController()
+    TarefaRepository repository;
+    public TarefaController(TarefaRepository _repository)
     {
-
+        repository = _repository;
     }
 
     // Listar todas as tarefas
     [HttpGet]
     public ActionResult<List<Tarefa>> GetAll()
     {
-        return TarefaService.GetAll();
+        return repository.GetAll();
     }
 
     // Listar uma tarefa pelo Id
     [HttpGet("{id}")]
     public ActionResult<Tarefa> Get(int id)
     {
-        var tarefa = TarefaService.Get(id);
+        var tarefa = repository.Get(id);
         if (tarefa is null)
             return NotFound();
 
@@ -36,7 +39,7 @@ public class TarefaController : ControllerBase
     [HttpPost]
     public IActionResult Create(Tarefa tarefa)
     {
-        TarefaService.Add(tarefa);
+        repository.Add(tarefa);
         return CreatedAtAction(nameof(Get), new { id = tarefa.Id }, tarefa);
     }
 
@@ -44,11 +47,11 @@ public class TarefaController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        var tarefa = TarefaService.Get(id);
+        var tarefa = repository.Get(id);
         if (tarefa is null)
             return NotFound();
 
-        TarefaService.Delete(id);
+        repository.Delete(id);
         return NoContent();
     }
 
@@ -59,11 +62,7 @@ public class TarefaController : ControllerBase
         if (id != tarefa.Id)
             return BadRequest();
 
-        var tarefaExistente = TarefaService.Get(tarefa.Id);
-        if (tarefaExistente is null)
-            return NotFound();
-
-        TarefaService.Update(tarefa);
+        repository.Update(tarefa);
 
         return NoContent();
     }
