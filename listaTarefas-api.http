@@ -4,16 +4,16 @@ GET {{listaTarefas_api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
-GET {{listaTarefas_api_HostAddress}}/Tarefa
+GET {{listaTarefas_api_HostAddress}}/api/Tarefa
 Accept: application/json
 
 ###
-GET {{listaTarefas_api_HostAddress}}/Tarefa/3
+GET {{listaTarefas_api_HostAddress}}/api/Tarefa/3
 Accept: application/json
 
 ###
 
-POST {{listaTarefas_api_HostAddress}}/Tarefa
+POST {{listaTarefas_api_HostAddress}}/api/Tarefa
 Content-Type: application/json
 
 {
@@ -23,12 +23,12 @@ Content-Type: application/json
 
 ###
 
-PUT {{listaTarefas_api_HostAddress}}/Tarefa/5
+PUT {{listaTarefas_api_HostAddress}}/api/Tarefa/5
 Content-Type: application/json
 
 {
     "Id": 5,
-    "Descricao": "Teste 9 - alterado",
+    "Descricao": "Teste 9 - alterado denovo",
     "Concluida": false
 }
 
