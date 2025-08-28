@@ -8,7 +8,7 @@ GET {{listaTarefas_api_HostAddress}}/api/Tarefa
 Accept: application/json
 
 ###
-GET {{listaTarefas_api_HostAddress}}/api/Tarefa/5
+GET {{listaTarefas_api_HostAddress}}/api/Tarefa/8
 Accept: application/json
 
 ###
@@ -17,20 +17,20 @@ POST {{listaTarefas_api_HostAddress}}/api/Tarefa
 Content-Type: application/json
 
 {
-    "id" : 7,
-    "Descricao": "Teste 33",
+    "id" : 8,
+    "Descricao": "fazer meu pão com ovo",
     "Concluida": false
 }
 
 ###
 
-PUT {{listaTarefas_api_HostAddress}}/api/Tarefa/5
+PUT {{listaTarefas_api_HostAddress}}/api/Tarefa/8
 Content-Type: application/json
 
 {
-    "Id": 5,
-    "Descricao": "Teste 10 - alterado denovo",
-    "Concluida": false
+    "Id": 8,
+    "Descricao": "fazer meu pão com ovo",
+    "Concluida": true
 }
 
 ###
